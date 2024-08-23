@@ -1,0 +1,13 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Ensure requests for PHP files are handled correctly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ $1 [L,QSA]
+
+# Optional: Redirect to index.html if no file is found
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
